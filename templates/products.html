@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}Products - Premium Furniture Store{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gray-50">
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold font-display mb-6 animate-fade-in" style="line-height: 1.1; margin-bottom: 1.5rem; clear: both; display: block;">Our Products</h1>
+            <p class="text-xl animate-fade-in-delay" style="line-height: 1.4; margin-bottom: 1.5rem; clear: both; display: block;">Discover our premium furniture collection</p>
+        </div>
+    </section>
+
+    <!-- Category Filter -->
+    <section class="py-8 bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="{{ url_for('main.products') }}" 
+                   class="px-6 py-2 rounded-full border-2 {% if current_category == 'all' %}bg-blue-600 text-white border-blue-600{% else %}border-gray-300 text-gray-700 hover:border-blue-600 hover:text-blue-600{% endif %} transition-all duration-300">
+                    All Products
+                </a>
+                {% for category in categories %}
+                <a href="{{ url_for('main.products', category=category) }}" 
+                   class="px-6 py-2 rounded-full border-2 {% if current_category == category %}bg-blue-600 text-white border-blue-600{% else %}border-gray-300 text-gray-700 hover:border-blue-600 hover:text-blue-600{% endif %} transition-all duration-300">
+                    {{ category.title() }}
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {% if products %}
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {% for product in products %}
+                <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in">
+                    <div class="relative overflow-hidden aspect-square">
+                        <img src="{{ product.image_url }}" alt="{{ product.name }}" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
+                        <div class="absolute top-2 right-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-2 py-1 rounded-full text-xs font-bold">
+                            {{ product.category.title() }}
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/70 to-transparent p-3">
+                            <h3 class="text-white text-sm font-bold font-display mb-2 line-clamp-2">{{ product.name }}</h3>
+                            <div class="flex justify-center mt-2">
+                                <button onclick="openWhatsApp('{{ whatsapp_number }}', 'Hi! I\'m interested in {{ product.name }}')" class="bg-green-500 hover:bg-green-600 text-white px-3 py-2 rounded-lg text-xs transition-colors duration-300 shadow-lg z-10 relative">
+                                    <i class="fab fa-whatsapp mr-1"></i>Inquire
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="text-center py-16">
+                <div class="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-box-open text-3xl text-gray-400"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-700 mb-2">No Products Found</h3>
+                <p class="text-gray-500">{% if current_category != 'all' %}No products found in the {{ current_category }} category.{% else %}No products available at the moment.{% endif %}</p>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-blue-600 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold font-display mb-4">Ready to Transform Your Space?</h2>
+            <p class="text-xl mb-8">Contact us today for personalized furniture solutions</p>
+            <a href="https://wa.me/{{ whatsapp_number.replace('+', '') }}?text=Hello! I'm interested in your furniture collection." 
+               class="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105">
+                <i class="fab fa-whatsapp mr-2"></i>Contact Us on WhatsApp
+            </a>
+        </div>
+    </section>
+</div>
+{% endblock %}

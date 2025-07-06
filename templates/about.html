@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block title %}About Us - Premium Furniture Store{% endblock %}
+
+{% block content %}
+<div class="bg-gray-50">
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-purple-600 to-pink-700 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold font-display mb-6 animate-fade-in" style="line-height: 1.1; margin-bottom: 1.5rem; clear: both; display: block;">About FurniLux</h1>
+            <p class="text-xl animate-fade-in-delay" style="line-height: 1.4; margin-bottom: 1.5rem; clear: both; display: block;">Learn more about our story and mission</p>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="py-8">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            {% if page_content %}
+            <div class="bg-white rounded-lg shadow-lg p-8 mb-8 animate-fade-in">
+                <h2 class="text-3xl font-bold font-display mb-6">{{ page_content.title }}</h2>
+                <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+                    {{ page_content.content | safe }}
+                </div>
+            </div>
+            {% else %}
+            <div class="bg-white rounded-lg shadow-lg p-8 mb-8 animate-fade-in">
+                <h2 class="text-3xl font-bold font-display mb-6">Our Story</h2>
+                <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+                    <p>FurniLux was founded with a simple mission: to bring premium, beautifully crafted furniture to homes around the world. We believe that furniture is more than just functional pieces – it's an expression of your personality and style.</p>
+                    
+                    <p>Our journey began with a passion for exceptional craftsmanship and attention to detail. Every piece in our collection is carefully selected and crafted by skilled artisans who share our commitment to quality and beauty.</p>
+                    
+                    <p>Today, we continue to grow and evolve, always staying true to our core values of quality, beauty, and customer satisfaction. We're not just selling furniture – we're helping you create the home of your dreams.</p>
+                </div>
+            </div>
+            
+            <!-- Company Excellence Section -->
+            <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg shadow-lg p-8 mb-8 animate-fade-in-delay">
+                <h2 class="text-3xl font-bold font-display mb-6 text-center">Experience FurniLux Excellence</h2>
+                <div class="text-lg leading-relaxed font-medium">
+                    <p>At FurniLux, we understand that furniture is more than just functional pieces – it's an investment in your lifestyle and comfort. Our commitment to excellence spans over a decade, during which we've perfected the art of combining traditional craftsmanship with modern design principles.</p>
+                    
+                    <p>Every piece in our collection undergoes rigorous quality checks and is crafted using sustainable materials sourced from trusted suppliers worldwide. Our dedicated team of interior designers works closely with clients to create personalized spaces that reflect individual style preferences.</p>
+                    
+                    <p>From initial consultation to final installation, we ensure seamless service delivery with attention to every detail. Our state-of-the-art showroom features the latest furniture trends, allowing customers to experience the quality and comfort firsthand before making their purchase decision.</p>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="py-8 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold font-display text-center mb-8">Our Values</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-6 animate-fade-in">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-gem text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold font-display mb-4">Quality</h3>
+                    <p class="text-gray-600">We never compromise on quality. Every piece meets our highest standards of craftsmanship and durability.</p>
+                </div>
+                <div class="text-center p-6 animate-fade-in-delay">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-heart text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold font-display mb-4">Customer First</h3>
+                    <p class="text-gray-600">Your satisfaction is our priority. We go above and beyond to ensure you love your furniture.</p>
+                </div>
+                <div class="text-center p-6 animate-fade-in-delay-2">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-leaf text-2xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold font-display mb-4">Sustainability</h3>
+                    <p class="text-gray-600">We're committed to sustainable practices and responsible sourcing of materials.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-8 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold font-display text-center mb-8">Why Choose Us?</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-8 animate-fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-clock text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Years of Experience</h3>
+                    </div>
+                    <p class="text-gray-600">With over a decade in the furniture industry, we understand what makes great furniture.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-8 animate-fade-in-delay">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-handshake text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Trusted Partners</h3>
+                    </div>
+                    <p class="text-gray-600">We work with skilled craftsmen and trusted suppliers to bring you the best furniture.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-8 animate-fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-award text-purple-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Award Winning</h3>
+                    </div>
+                    <p class="text-gray-600">Our commitment to excellence has been recognized by industry leaders and customers alike.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-8 animate-fade-in-delay">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-users text-red-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Happy Customers</h3>
+                    </div>
+                    <p class="text-gray-600">Thousands of satisfied customers trust us with their furniture needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-8 bg-purple-600 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold font-display mb-4">Ready to Start Your Journey?</h2>
+            <p class="text-xl mb-6">Let us help you create the perfect space for your home</p>
+            <button onclick="openWhatsApp('{{ whatsapp_number }}', 'Hello! I would like to learn more about FurniLux.')" 
+                    class="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105">
+                <i class="fab fa-whatsapp mr-2"></i>Get in Touch
+            </button>
+        </div>
+    </section>
+</div>
+{% endblock %}
